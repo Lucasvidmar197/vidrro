@@ -125,6 +125,187 @@
         ::-webkit-scrollbar-track { background: #030303; }
         ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
         ::-webkit-scrollbar-thumb:hover { background: #00ffa3; }
+
+        /* ===== DEMO SECTION ===== */
+
+        /* MacBook Frame */
+        .macbook-frame {
+            position: relative;
+            background: #1a1a1a;
+            border-radius: 12px 12px 0 0;
+            padding: 10px 10px 0 10px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05);
+        }
+        .macbook-frame::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: #333;
+            border-radius: 50%;
+        }
+        .macbook-screen {
+            border-radius: 4px;
+            overflow: hidden;
+            background: #000;
+        }
+        .macbook-screen img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .macbook-base {
+            background: linear-gradient(to bottom, #2a2a2a, #1a1a1a);
+            height: 10px;
+            border-radius: 0 0 4px 4px;
+            margin: 0 -2px;
+            position: relative;
+        }
+        .macbook-base::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #333;
+            border-radius: 0 0 3px 3px;
+        }
+        .macbook-notch {
+            width: 100%;
+            height: 8px;
+            background: #1a1a1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .macbook-notch::after {
+            content: '';
+            width: 40px;
+            height: 4px;
+            background: #0d0d0d;
+            border-radius: 0 0 6px 6px;
+        }
+
+        /* iPhone Frame */
+        .iphone-frame {
+            position: relative;
+            background: #1a1a1a;
+            border-radius: 28px;
+            padding: 8px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05);
+            width: 160px;
+            flex-shrink: 0;
+        }
+        .iphone-frame::before {
+            content: '';
+            position: absolute;
+            top: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 14px;
+            background: #1a1a1a;
+            border-radius: 0 0 12px 12px;
+            z-index: 2;
+        }
+        .iphone-screen {
+            border-radius: 20px;
+            overflow: hidden;
+            background: #000;
+        }
+        .iphone-screen img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .iphone-home {
+            width: 100%;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .iphone-home::after {
+            content: '';
+            width: 32px;
+            height: 3px;
+            background: #444;
+            border-radius: 2px;
+        }
+
+        /* Demo Card */
+        .demo-card {
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: all 0.4s ease;
+            overflow: hidden;
+        }
+        .demo-card:hover {
+            border-color: rgba(0,255,163,0.3);
+            box-shadow: 0 0 40px rgba(0,255,163,0.05);
+        }
+        .demo-card:hover .macbook-frame {
+            transform: scale(1.02);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .demo-card:hover .iphone-frame {
+            transform: translateY(-8px);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .macbook-frame { transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .iphone-frame { transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+
+        .demo-tag {
+            font-size: 9px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 2px;
+            color: #888;
+            font-family: 'JetBrains Mono', monospace;
+            transition: all 0.3s ease;
+        }
+        .demo-tag:hover {
+            border-color: #00ffa3;
+            color: #00ffa3;
+        }
+
+        .demo-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #00ffa3;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .demo-link:hover { gap: 10px; }
+        .demo-link .arrow { transition: transform 0.3s ease; }
+        .demo-link:hover .arrow { transform: translateX(2px); }
+
+        /* Glow behind devices */
+        .device-glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(0,255,163,0.06) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Nav link for demos */
+        #mobile-menu a[href="#demos"],
+        nav a[href="#demos"] {
+            /* handled by general styles */
+        }
     </style>
 </head>
 <body class="grid-bg">
@@ -149,6 +330,7 @@
             <a href="#servicios" class="text-xs font-semibold uppercase tracking-wide text-sub hover:text-mint transition-colors">Servicios</a>
             <a href="#proceso" class="text-xs font-semibold uppercase tracking-wide text-sub hover:text-mint transition-colors">Proceso</a>
             <a href="#stack" class="text-xs font-semibold uppercase tracking-wide text-sub hover:text-mint transition-colors">Tecnologías</a>
+            <a href="#demos" class="text-xs font-semibold uppercase tracking-wide text-sub hover:text-mint transition-colors">Demos</a>
             <a href="#contacto" class="text-xs font-semibold uppercase tracking-wide text-sub hover:text-mint transition-colors">Contacto</a>
         </div>
 
@@ -167,6 +349,7 @@
         <a href="#servicios" class="mobile-link text-2xl font-semibold tracking-tight text-sub hover:text-mint transition-colors">Servicios</a>
         <a href="#proceso" class="mobile-link text-2xl font-semibold tracking-tight text-sub hover:text-mint transition-colors">Proceso</a>
         <a href="#stack" class="mobile-link text-2xl font-semibold tracking-tight text-sub hover:text-mint transition-colors">Tecnologías</a>
+        <a href="#demos" class="mobile-link text-2xl font-semibold tracking-tight text-sub hover:text-mint transition-colors">Demos</a>
         <a href="#contacto" class="mobile-link text-2xl font-semibold tracking-tight text-sub hover:text-mint transition-colors">Contacto</a>
         <a href="#contacto" class="btn-primary mt-4">Iniciar Proyecto</a>
     </div>
@@ -222,7 +405,7 @@
             <!-- Card 2 -->
             <div class="reveal service-card p-8 md:p-10 flex flex-col justify-between min-h-[280px]" style="transition-delay: 0.1s;">
                 <div>
-                    <span class="iconify card-icon text-sub text-3xl mb-6 block" data-icon="mdi:RRO-braces"></span>
+                    <span class="iconify card-icon text-sub text-3xl mb-6 block" data-icon="mdi:code-braces"></span>
                     <h3 class="text-xl font-semibold tracking-tight mb-3">Desarrollo Web</h3>
                     <p class="text-sm text-sub leading-relaxed">Sitios y aplicaciones web rápidos, escalables y seguros. Desde landing pages hasta plataformas SaaS complejas.</p>
                 </div>
@@ -285,7 +468,7 @@
         </div>
     </section>
 
-    <div class="divider mx-6 md:mx-12"></div>
+    <div class="divider mx-6 md:px-12"></div>
 
     <!-- Tech Stack Section -->
     <section id="stack" class="py-16 md:py-24 px-6 md:px-12">
@@ -340,6 +523,163 @@
 
     <div class="divider mx-6 md:mx-12"></div>
 
+    <!-- ==================== DEMOS SECTION ==================== -->
+    <section id="demos" class="py-16 md:py-24 px-6 md:px-12">
+        <div class="reveal mb-16 md:mb-24">
+            <p class="font-mono text-[10px] tracking-widest uppercase text-mint mb-4">[ 04 — Demos ]</p>
+            <h2 class="text-3xl md:text-4xl font-semibold tracking-tight">Proyectos en acción</h2>
+            <p class="text-sm text-sub leading-relaxed mt-4 max-w-xl">Una muestra real de lo que construimos. Cada proyecto está diseñado para convertir visitantes en clientes.</p>
+        </div>
+
+        <!-- ===== DEMO 1: Inmobiliaria ===== -->
+        <div class="reveal demo-card mb-12 md:mb-16">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                
+                <!-- Info -->
+                <div class="p-8 md:p-12 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-border">
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="demo-tag">Inmobiliaria</span>
+                            <span class="demo-tag">Panel Admin</span>
+                            <span class="demo-tag">Frontend</span>
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-semibold tracking-tight mb-4">Plataforma Inmobiliaria</h3>
+                        <p class="text-sm text-sub leading-relaxed mb-6">
+                            Sistema completo de gestión inmobiliaria con panel de administrador para cargar propiedades, gestionar consultas y un frontend móvil-first optimizado para la experiencia del comprador.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 mb-8">
+                            <div>
+                                <p class="text-[10px] font-mono tracking-widest uppercase text-sub mb-1">Vista Desktop</p>
+                                <p class="text-xs text-white/70">Panel de administración</p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-mono tracking-widest uppercase text-sub mb-1">Vista Móvil</p>
+                                <p class="text-xs text-white/70">Frontend de usuario</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#contacto" class="demo-link">
+                        Quiero uno así <span class="iconify arrow" data-icon="mdi:arrow-right" data-width="14"></span>
+                    </a>
+                </div>
+
+                <!-- Devices -->
+                <div class="p-8 md:p-12 flex items-center justify-center relative" style="background: rgba(255,255,255,0.01);">
+                    <div class="device-glow" style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+                    <div class="flex items-end gap-6 md:gap-8 relative z-10">
+                        
+                        <!-- MacBook -->
+                        <div class="macbook-frame hidden sm:block">
+                            <div class="macbook-notch"></div>
+                            <div class="macbook-screen">
+                                <img src="https://i.postimg.cc/mgmrD8qv/Macbook-Air.png" alt="Panel administrador inmobiliaria" loading="lazy">
+                            </div>
+                            <div class="macbook-base"></div>
+                        </div>
+
+                        <!-- iPhone -->
+                        <div class="iphone-frame">
+                            <div class="iphone-screen">
+                                <img src="https://i.postimg.cc/L5F977YQ/i-Phone-14-PRO-chat-z-ai-(1).png" alt="Frontend móvil inmobiliaria" loading="lazy">
+                            </div>
+                            <div class="iphone-home"></div>
+                        </div>
+
+                    </div>
+
+                    <!-- Mobile fallback: show desktop image below -->
+                    <div class="sm:hidden w-full mt-6">
+                        <div class="macbook-frame">
+                            <div class="macbook-notch"></div>
+                            <div class="macbook-screen">
+                                <img src="https://i.postimg.cc/mgmrD8qv/Macbook-Air.png" alt="Panel administrador inmobiliaria" loading="lazy">
+                            </div>
+                            <div class="macbook-base"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ===== DEMO 2: Arquitectura ===== -->
+        <div class="reveal demo-card" style="transition-delay: 0.15s;">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+                
+                <!-- Devices (reversed order on this one) -->
+                <div class="p-8 md:p-12 flex items-center justify-center relative order-2 lg:order-1" style="background: rgba(255,255,255,0.01);">
+                    <div class="device-glow" style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+                    <div class="flex items-end gap-6 md:gap-8 relative z-10">
+                        
+                        <!-- MacBook -->
+                        <div class="macbook-frame hidden sm:block">
+                            <div class="macbook-notch"></div>
+                            <div class="macbook-screen">
+                                <img src="https://i.postimg.cc/J7TmjGKz/Macbook-Air-localhost.png" alt="Frontend desktop arquitectura" loading="lazy">
+                            </div>
+                            <div class="macbook-base"></div>
+                        </div>
+
+                        <!-- iPhone -->
+                        <div class="iphone-frame">
+                            <div class="iphone-screen">
+                                <img src="https://i.postimg.cc/6QR50tTJ/i-Phone-14-PRO-localhost.png" alt="Frontend móvil arquitectura" loading="lazy">
+                            </div>
+                            <div class="iphone-home"></div>
+                        </div>
+
+                    </div>
+
+                    <!-- Mobile fallback -->
+                    <div class="sm:hidden w-full mt-6">
+                        <div class="macbook-frame">
+                            <div class="macbook-notch"></div>
+                            <div class="macbook-screen">
+                                <img src="https://i.postimg.cc/J7TmjGKz/Macbook-Air-localhost.png" alt="Frontend desktop arquitectura" loading="lazy">
+                            </div>
+                            <div class="macbook-base"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Info -->
+                <div class="p-8 md:p-12 flex flex-col justify-between border-b lg:border-b-0 lg:border-l border-border order-1 lg:order-2">
+                    <div>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="demo-tag">Arquitectura</span>
+                            <span class="demo-tag">Corporativo</span>
+                            <span class="demo-tag">Responsive</span>
+                        </div>
+                        <h3 class="text-2xl md:text-3xl font-semibold tracking-tight mb-4">Vidmar Construcciones</h3>
+                        <p class="text-sm text-sub leading-relaxed mb-6">
+                            Sitio web corporativo para estudio de arquitectura y construcción. Diseño elegante que refleja la calidad de sus obras, con galería de proyectos, secciones de servicios y formulario de contacto integrado.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 mb-8">
+                            <div>
+                                <p class="text-[10px] font-mono tracking-widest uppercase text-sub mb-1">Vista Desktop</p>
+                                <p class="text-xs text-white/70">Frontend completo</p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-mono tracking-widest uppercase text-sub mb-1">Vista Móvil</p>
+                                <p class="text-xs text-white/70">Versión responsive</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                        <a href="https://vidmarconstrucciones.com" target="_blank" rel="noopener" class="demo-link">
+                            Ver sitio en vivo <span class="iconify arrow" data-icon="mdi:arrow-right" data-width="14"></span>
+                        </a>
+                        <span class="text-[10px] font-mono text-sub">vidmarconstrucciones.com</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <div class="divider mx-6 md:mx-12"></div>
+
     <!-- Stats Section -->
     <section class="py-16 md:py-24 px-6 md:px-12">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 md:divide-x divide-border">
@@ -368,7 +708,7 @@
     <section id="contacto" class="py-16 md:py-24 px-6 md:px-12">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
             <div class="reveal">
-                <p class="font-mono text-[10px] tracking-widest uppercase text-mint mb-4">[ 04 — Contacto ]</p>
+                <p class="font-mono text-[10px] tracking-widest uppercase text-mint mb-4">[ 05 — Contacto ]</p>
                 <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-6">Hablemos de tu <span class="text-gradient">próximo proyecto</span></h2>
                 <p class="text-sm text-sub leading-relaxed mb-8">
                     Cuéntanos tu idea y te responderemos en menos de 24 horas con una propuesta personalizada sin compromiso.
@@ -462,7 +802,6 @@
                 clearInterval(interval);
                 setTimeout(() => {
                     preloader.classList.add('fade-out');
-                    // Trigger reveal animations
                     document.querySelectorAll('.reveal').forEach((el, i) => {
                         setTimeout(() => el.classList.add('active'), i * 100);
                     });
@@ -494,7 +833,6 @@
             });
         }, observerOptions);
 
-        // Observe elements that aren't in the initial viewport
         setTimeout(() => {
             document.querySelectorAll('.reveal:not(.active)').forEach(el => {
                 observer.observe(el);
