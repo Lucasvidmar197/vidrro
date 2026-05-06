@@ -35,32 +35,30 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { background-color: #030303; color: #e0e0e0; font-family: 'Inter', sans-serif; overflow-x: hidden; }
         
-        /* Preloader */
-        #preloader {
+        /* barra de carga init */
+        #loader {
             position: fixed; inset: 0; z-index: 9999;
             background: #030303;
             display: flex; align-items: center; justify-content: center;
             transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
         }
-        #preloader.fade-out { opacity: 0; visibility: hidden; }
-        #preloader-bar { height: 2px; background: #00ffa3; transition: all 300ms ease-out; box-shadow: 0 0 10px #00ffa3; }
+        #loader.fade-out { opacity: 0; visibility: hidden; }
+        #loader-bar { height: 2px; background: #00ffa3; transition: all 300ms ease-out; box-shadow: 0 0 10px #00ffa3; }
 
-        /* Grid Background */
+        /* el grid de fondo, sale solo */
         .grid-bg {
             background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
                               linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
             background-size: 50px 50px;
         }
 
-        /* Gradient Text */
-        .text-gradient {
+        .grad-text {
             background: linear-gradient(to right, #fff, #00ffa3);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
-        /* Scan Line Animation */
         .scan-line {
             position: absolute; left: 0; width: 100%; height: 1px;
             background: linear-gradient(to right, transparent, #00ffa3, transparent);
@@ -69,74 +67,70 @@
         }
         @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
 
-        /* Reveal Animation */
+        /* animaciones al scrolleo */
         .reveal {
             opacity: 0; transform: translateY(50px);
             transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        /* Card Hover */
-        .service-card {
+        /* los 3 tiles de servicios */
+        .svc-tile {
             border: 1px solid rgba(255,255,255,0.08);
             transition: all 0.3s ease;
         }
-        .service-card:hover {
+        .svc-tile:hover {
             border-color: #00ffa3;
             background: rgba(255,255,255,0.03);
         }
-        .service-card:hover .card-icon { color: #00ffa3; transform: scale(1.1); }
-        .service-card:hover .card-arrow { transform: translateX(4px); color: #00ffa3; }
+        .svc-tile:hover .tile-icon { color: #00ffa3; transform: scale(1.1); }
+        .svc-tile:hover .tile-arrow { transform: translateX(4px); color: #00ffa3; }
 
-        .card-icon { transition: all 0.3s ease; }
-        .card-arrow { transition: all 0.3s ease; }
+        .tile-icon { transition: all 0.3s ease; }
+        .tile-arrow { transition: all 0.3s ease; }
 
-        /* Button Styles */
-        .btn-primary {
+        .btn-solid {
             background: #00ffa3; color: #030303; font-weight: 700; font-size: 0.75rem;
             letter-spacing: 0.1em; text-transform: uppercase; padding: 1rem 2rem;
             transition: all 0.3s ease; box-shadow: 0 0 20px rgba(0,255,163,0.3);
         }
-        .btn-primary:hover { box-shadow: 0 0 30px rgba(0,255,163,0.5); transform: scale(1.02); }
+        .btn-solid:hover { box-shadow: 0 0 30px rgba(0,255,163,0.5); transform: scale(1.02); }
 
-        .btn-outline {
+        .btn-ghost {
             border: 1px solid rgba(255,255,255,0.15); color: #e0e0e0; font-weight: 700; font-size: 0.75rem;
             letter-spacing: 0.1em; text-transform: uppercase; padding: 1rem 2rem;
             transition: all 0.3s ease;
         }
-        .btn-outline:hover { border-color: #00ffa3; color: #00ffa3; }
+        .btn-ghost:hover { border-color: #00ffa3; color: #00ffa3; }
 
-        /* Dividers */
-        .divider { height: 1px; background: rgba(255,255,255,0.08); }
+        .sep { height: 1px; background: rgba(255,255,255,0.08); }
 
-        /* Mobile Menu */
-        #mobile-menu {
+        /* menu hamburguesa mobile */
+        #drawer {
             transform: translateX(100%);
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        #mobile-menu.open { transform: translateX(0); }
+        #drawer.open { transform: translateX(0); }
 
-        /* Tech Stack Hover */
-        .tech-item { transition: all 0.3s ease; border: 1px solid transparent; }
-        .tech-item:hover { border-color: rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); }
+        /* cada tech del stack */
+        .tool-chip { transition: all 0.3s ease; border: 1px solid transparent; }
+        .tool-chip:hover { border-color: rgba(255,255,255,0.08); background: rgba(255,255,255,0.02); }
 
-        /* Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #030303; }
         ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
         ::-webkit-scrollbar-thumb:hover { background: #00ffa3; }
 
-        /* ===== DEMO SECTION ===== */
-
-        /* MacBook Frame */
-        .macbook-frame {
+        /* frames de mac y iphone para las demos */
+        .mac-frame {
             position: relative;
             background: #1a1a1a;
             border-radius: 12px 12px 0 0;
-            padding: 10px 10px 0 10px;
+            padding: 10px 10px 0;
             box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .macbook-frame::before {
+        .mac-frame::before {
             content: '';
             position: absolute;
             top: 6px;
@@ -147,52 +141,42 @@
             background: #333;
             border-radius: 50%;
         }
-        .macbook-screen {
+        .mac-screen {
             border-radius: 4px;
             overflow: hidden;
             background: #000;
         }
-        .macbook-screen img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        .macbook-base {
+        .mac-screen img { width: 100%; height: auto; display: block; }
+        .mac-base {
             background: linear-gradient(to bottom, #2a2a2a, #1a1a1a);
             height: 10px;
             border-radius: 0 0 4px 4px;
             margin: 0 -2px;
             position: relative;
         }
-        .macbook-base::before {
+        .mac-base::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 50%;
+            top: 0; left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
+            width: 80px; height: 3px;
             background: #333;
             border-radius: 0 0 3px 3px;
         }
-        .macbook-notch {
-            width: 100%;
-            height: 8px;
+        .mac-notch {
+            width: 100%; height: 8px;
             background: #1a1a1a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
         }
-        .macbook-notch::after {
+        .mac-notch::after {
             content: '';
-            width: 40px;
-            height: 4px;
+            width: 40px; height: 4px;
             background: #0d0d0d;
             border-radius: 0 0 6px 6px;
         }
 
-        /* iPhone Frame */
-        .iphone-frame {
+        /* iphone, bastante copy paste del mac pero redondeado */
+        .phone-wrap {
             position: relative;
             background: #1a1a1a;
             border-radius: 28px;
@@ -200,66 +184,49 @@
             box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05);
             width: 160px;
             flex-shrink: 0;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .iphone-frame::before {
+        .phone-wrap::before {
             content: '';
             position: absolute;
-            top: 14px;
-            left: 50%;
+            top: 14px; left: 50%;
             transform: translateX(-50%);
-            width: 50px;
-            height: 14px;
+            width: 50px; height: 14px;
             background: #1a1a1a;
             border-radius: 0 0 12px 12px;
             z-index: 2;
         }
-        .iphone-screen {
+        .phone-screen {
             border-radius: 20px;
             overflow: hidden;
             background: #000;
         }
-        .iphone-screen img {
-            width: 100%;
-            height: auto;
-            display: block;
+        .phone-screen img { width: 100%; height: auto; display: block; }
+        .phone-home {
+            width: 100%; height: 18px;
+            display: flex; align-items: center; justify-content: center;
         }
-        .iphone-home {
-            width: 100%;
-            height: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .iphone-home::after {
+        .phone-home::after {
             content: '';
-            width: 32px;
-            height: 3px;
+            width: 32px; height: 3px;
             background: #444;
             border-radius: 2px;
         }
 
-        /* Demo Card */
-        .demo-card {
+        /* cada bloque de demo */
+        .showcase-block {
             border: 1px solid rgba(255,255,255,0.08);
             transition: all 0.4s ease;
             overflow: hidden;
         }
-        .demo-card:hover {
+        .showcase-block:hover {
             border-color: rgba(0,255,163,0.3);
             box-shadow: 0 0 40px rgba(0,255,163,0.05);
         }
-        .demo-card:hover .macbook-frame {
-            transform: scale(1.02);
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .demo-card:hover .iphone-frame {
-            transform: translateY(-8px);
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .macbook-frame { transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
-        .iphone-frame { transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .showcase-block:hover .mac-frame { transform: scale(1.02); }
+        .showcase-block:hover .phone-wrap { transform: translateY(-8px); }
 
-        .demo-tag {
+        .tag-pill {
             font-size: 9px;
             letter-spacing: 0.1em;
             text-transform: uppercase;
@@ -270,12 +237,9 @@
             font-family: 'JetBrains Mono', monospace;
             transition: all 0.3s ease;
         }
-        .demo-tag:hover {
-            border-color: #00ffa3;
-            color: #00ffa3;
-        }
+        .tag-pill:hover { border-color: #00ffa3; color: #00ffa3; }
 
-        .demo-link {
+        .showcase-cta {
             display: inline-flex;
             align-items: center;
             gap: 6px;
@@ -287,40 +251,33 @@
             text-decoration: none;
             transition: all 0.3s ease;
         }
-        .demo-link:hover { gap: 10px; }
-        .demo-link .arrow { transition: transform 0.3s ease; }
-        .demo-link:hover .arrow { transform: translateX(2px); }
+        .showcase-cta:hover { gap: 10px; }
+        .showcase-cta .arrow { transition: transform 0.3s ease; }
+        .showcase-cta:hover .arrow { transform: translateX(2px); }
 
-        /* Glow behind devices */
-        .device-glow {
+        /* glowcito sutil detras de los devices */
+        .ambient-light {
             position: absolute;
-            width: 300px;
-            height: 300px;
+            width: 300px; height: 300px;
             background: radial-gradient(circle, rgba(0,255,163,0.06) 0%, transparent 70%);
             pointer-events: none;
             z-index: 0;
-        }
-
-        /* Nav link for demos */
-        #mobile-menu a[href="#demos"],
-        nav a[href="#demos"] {
-            /* handled by general styles */
         }
     </style>
 </head>
 <body class="grid-bg">
 
-    <!-- Preloader -->
-    <div id="preloader">
+    <!-- barra loading -->
+    <div id="loader">
         <div class="w-48 flex flex-col items-center gap-4">
             <p class="font-mono text-[10px] tracking-widest uppercase text-sub">Cargando experiencia</p>
             <div class="w-full h-[2px] bg-border rounded-full overflow-hidden">
-                <div id="preloader-bar" class="h-full rounded-full" style="width: 0%;"></div>
+                <div id="loader-bar" class="h-full rounded-full" style="width: 0%;"></div>
             </div>
         </div>
     </div>
 
-    <!-- Navigation -->
+    <!-- navbar fija -->
     <nav class="fixed top-0 left-0 right-0 z-50 h-16 flex items-center justify-between px-6 md:px-12 bg-void/90 backdrop-blur-xl border-b border-border">
         <a href="#" class="flex items-center gap-2">
             <span class="text-mint text-xl font-bold tracking-tightest">VID</span><span class="text-white text-xl font-bold tracking-tightest">RRO</span>
@@ -335,54 +292,52 @@
         </div>
 
         <div class="hidden md:block">
-            <a href="#contacto" class="btn-primary inline-block">Iniciar Proyecto</a>
+            <a href="#contacto" class="btn-solid inline-block">Iniciar Proyecto</a>
         </div>
 
-        <!-- Mobile Menu Button -->
-        <button id="menu-toggle" class="md:hidden text-white">
+        <button id="menu-btn" class="md:hidden text-white">
             <span class="iconify" data-icon="mdi:menu" data-width="24"></span>
         </button>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="fixed inset-0 z-40 bg-void/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8">
+    <!-- drawer del mobile, se abre con el boton de hamburguesa -->
+    <div id="drawer" class="fixed inset-0 z-40 bg-void/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8">
         <a href="#servicios" class="mobile-link text-2xl font-semibold tracking-tight text-sub hover:text-mint transition-colors">Servicios</a>
         <a href="#proceso" class="mobile-link text-2xl font-semibold tracking-tight text-sub hover:text-mint transition-colors">Proceso</a>
         <a href="#stack" class="mobile-link text-2xl font-semibold tracking-tight text-sub hover:text-mint transition-colors">Tecnologías</a>
         <a href="#demos" class="mobile-link text-2xl font-semibold tracking-tight text-sub hover:text-mint transition-colors">Demos</a>
         <a href="#contacto" class="mobile-link text-2xl font-semibold tracking-tight text-sub hover:text-mint transition-colors">Contacto</a>
-        <a href="#contacto" class="btn-primary mt-4">Iniciar Proyecto</a>
+        <a href="#contacto" class="btn-solid mt-4">Iniciar Proyecto</a>
     </div>
 
-    <!-- Hero Section -->
+    <!-- hero, lo primero que se ve -->
     <section class="relative h-screen min-h-[600px] flex flex-col items-center justify-center pt-16 px-6">
         <div class="scan-line"></div>
         
         <div class="reveal text-center max-w-4xl mx-auto">
             <p class="font-mono text-[10px] tracking-widest uppercase text-mint mb-6">Agencia de Desarrollo & Diseño Web</p>
             <h1 class="text-4xl md:text-7xl font-semibold leading-none tracking-tightest mb-6">
-                Creamos <span class="text-gradient">experiencias</span> digitales que convierten
+                Creamos <span class="grad-text">experiencias</span> digitales que convierten
             </h1>
             <p class="text-sm md:text-base text-sub leading-relaxed max-w-2xl mx-auto mb-10">
                 Transformamos ideas en plataformas web de alto rendimiento. Diseño intuitivo, código limpio y resultados medibles para emprendedores y empresas.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#contacto" class="btn-primary">Solicitar Presupuesto</a>
-                <a href="#servicios" class="btn-outline flex items-center gap-2">
+                <a href="#contacto" class="btn-solid">Solicitar Presupuesto</a>
+                <a href="#servicios" class="btn-ghost flex items-center gap-2">
                     Ver Servicios <span class="iconify" data-icon="mdi:arrow-down" data-width="14"></span>
                 </a>
             </div>
         </div>
 
-        <!-- Scroll Indicator -->
         <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
             <div class="w-[1px] h-8 bg-gradient-to-b from-transparent to-mint"></div>
         </div>
     </section>
 
-    <div class="divider mx-6 md:mx-12"></div>
+    <div class="sep mx-6 md:mx-12"></div>
 
-    <!-- Services Section -->
+    <!-- que ofrecemos -->
     <section id="servicios" class="py-16 md:py-24 px-6 md:px-12">
         <div class="reveal mb-16 md:mb-24">
             <p class="font-mono text-[10px] tracking-widest uppercase text-mint mb-4">[ 01 — Servicios ]</p>
@@ -390,47 +345,44 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-0">
-            <!-- Card 1 -->
-            <div class="reveal service-card p-8 md:p-10 flex flex-col justify-between min-h-[280px]">
+            <div class="reveal svc-tile p-8 md:p-10 flex flex-col justify-between min-h-[280px]">
                 <div>
-                    <span class="iconify card-icon text-sub text-3xl mb-6 block" data-icon="mdi:palette-outline"></span>
+                    <span class="iconify tile-icon text-sub text-3xl mb-6 block" data-icon="mdi:palette-outline"></span>
                     <h3 class="text-xl font-semibold tracking-tight mb-3">Diseño UI/UX</h3>
                     <p class="text-sm text-sub leading-relaxed">Interfaces intuitivas centradas en el usuario. Prototipado, wireframes y sistemas de diseño que elevan tu marca.</p>
                 </div>
                 <div class="flex items-center gap-2 mt-8 text-sub text-xs font-semibold uppercase tracking-wide">
-                    Explorar <span class="iconify card-arrow" data-icon="mdi:arrow-right" data-width="14"></span>
+                    Explorar <span class="iconify tile-arrow" data-icon="mdi:arrow-right" data-width="14"></span>
                 </div>
             </div>
 
-            <!-- Card 2 -->
-            <div class="reveal service-card p-8 md:p-10 flex flex-col justify-between min-h-[280px]" style="transition-delay: 0.1s;">
+            <div class="reveal svc-tile p-8 md:p-10 flex flex-col justify-between min-h-[280px]" style="transition-delay: 0.1s;">
                 <div>
-                    <span class="iconify card-icon text-sub text-3xl mb-6 block" data-icon="mdi:code-braces"></span>
+                    <span class="iconify tile-icon text-sub text-3xl mb-6 block" data-icon="mdi:code-braces"></span>
                     <h3 class="text-xl font-semibold tracking-tight mb-3">Desarrollo Web</h3>
                     <p class="text-sm text-sub leading-relaxed">Sitios y aplicaciones web rápidos, escalables y seguros. Desde landing pages hasta plataformas SaaS complejas.</p>
                 </div>
                 <div class="flex items-center gap-2 mt-8 text-sub text-xs font-semibold uppercase tracking-wide">
-                    Explorar <span class="iconify card-arrow" data-icon="mdi:arrow-right" data-width="14"></span>
+                    Explorar <span class="iconify tile-arrow" data-icon="mdi:arrow-right" data-width="14"></span>
                 </div>
             </div>
 
-            <!-- Card 3 -->
-            <div class="reveal service-card p-8 md:p-10 flex flex-col justify-between min-h-[280px]" style="transition-delay: 0.2s;">
+            <div class="reveal svc-tile p-8 md:p-10 flex flex-col justify-between min-h-[280px]" style="transition-delay: 0.2s;">
                 <div>
-                    <span class="iconify card-icon text-sub text-3xl mb-6 block" data-icon="mdi:rocket-launch-outline"></span>
+                    <span class="iconify tile-icon text-sub text-3xl mb-6 block" data-icon="mdi:rocket-launch-outline"></span>
                     <h3 class="text-xl font-semibold tracking-tight mb-3">Estrategia Digital</h3>
                     <p class="text-sm text-sub leading-relaxed">SEO técnico, optimización de conversión y analítica avanzada para maximizar el impacto de tu presencia online.</p>
                 </div>
                 <div class="flex items-center gap-2 mt-8 text-sub text-xs font-semibold uppercase tracking-wide">
-                    Explorar <span class="iconify card-arrow" data-icon="mdi:arrow-right" data-width="14"></span>
+                    Explorar <span class="iconify tile-arrow" data-icon="mdi:arrow-right" data-width="14"></span>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="divider mx-6 md:mx-12"></div>
+    <div class="sep mx-6 md:mx-12"></div>
 
-    <!-- Process Section -->
+    <!-- pasos del workflow -->
     <section id="proceso" class="py-16 md:py-24 px-6 md:px-12">
         <div class="reveal mb-16 md:mb-24">
             <p class="font-mono text-[10px] tracking-widest uppercase text-mint mb-4">[ 02 — Proceso ]</p>
@@ -438,29 +390,25 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-0">
-            <!-- Step 1 -->
             <div class="reveal relative md:px-6">
                 <span class="font-mono text-[64px] font-bold text-border-strong leading-none">01</span>
                 <h3 class="text-lg font-semibold tracking-tight mt-4 mb-2">Descubrimiento</h3>
                 <p class="text-sm text-sub leading-relaxed">Analizamos tus objetivos, audiencia y competencia para definir la estrategia perfecta.</p>
                 <div class="hidden md:block absolute top-8 right-0 w-[1px] h-16 bg-border"></div>
             </div>
-            <!-- Step 2 -->
-            <div class="reveal relative md:px-6" style="transition-delay: 0.1s;">
+            <div class="reveal relative md:px-6" style="transition-delay: 0.12s;">
                 <span class="font-mono text-[64px] font-bold text-border-strong leading-none">02</span>
                 <h3 class="text-lg font-semibold tracking-tight mt-4 mb-2">Diseño</h3>
                 <p class="text-sm text-sub leading-relaxed">Creamos mockups interactivos que visualizan la experiencia final antes de programar.</p>
                 <div class="hidden md:block absolute top-8 right-0 w-[1px] h-16 bg-border"></div>
             </div>
-            <!-- Step 3 -->
             <div class="reveal relative md:px-6" style="transition-delay: 0.2s;">
                 <span class="font-mono text-[64px] font-bold text-border-strong leading-none">03</span>
                 <h3 class="text-lg font-semibold tracking-tight mt-4 mb-2">Desarrollo</h3>
                 <p class="text-sm text-sub leading-relaxed">Codificamos con las mejores prácticas, asegurando velocidad, SEO y responsividad total.</p>
                 <div class="hidden md:block absolute top-8 right-0 w-[1px] h-16 bg-border"></div>
             </div>
-            <!-- Step 4 -->
-            <div class="reveal md:px-6" style="transition-delay: 0.3s;">
+            <div class="reveal md:px-6" style="transition-delay: 0.28s;">
                 <span class="font-mono text-[64px] font-bold text-border-strong leading-none">04</span>
                 <h3 class="text-lg font-semibold tracking-tight mt-4 mb-2">Lanzamiento</h3>
                 <p class="text-sm text-sub leading-relaxed">Despliegue, pruebas exhaustivas y soporte continuo post-lanzamiento.</p>
@@ -468,9 +416,9 @@
         </div>
     </section>
 
-    <div class="divider mx-6 md:px-12"></div>
+    <div class="sep mx-6 md:px-12"></div>
 
-    <!-- Tech Stack Section -->
+    <!-- logos de tech que usamos -->
     <section id="stack" class="py-16 md:py-24 px-6 md:px-12">
         <div class="reveal mb-16 md:mb-24">
             <p class="font-mono text-[10px] tracking-widest uppercase text-mint mb-4">[ 03 — Stack ]</p>
@@ -478,42 +426,42 @@
         </div>
 
         <div class="grid grid-cols-2 md:grid-cols-4 gap-0">
-            <div class="reveal tech-item p-6 flex flex-col items-center text-center">
+            <div class="reveal tool-chip p-6 flex flex-col items-center text-center">
                 <span class="iconify text-4xl text-sub mb-3" data-icon="logos:react"></span>
                 <p class="text-sm font-medium">React</p>
                 <p class="text-[10px] text-sub font-mono mt-1">Frontend</p>
             </div>
-            <div class="reveal tech-item p-6 flex flex-col items-center text-center" style="transition-delay: 0.05s;">
+            <div class="reveal tool-chip p-6 flex flex-col items-center text-center" style="transition-delay: 0.08s;">
                 <span class="iconify text-4xl text-sub mb-3" data-icon="logos:nextjs-icon"></span>
                 <p class="text-sm font-medium">Next.js</p>
                 <p class="text-[10px] text-sub font-mono mt-1">Fullstack</p>
             </div>
-            <div class="reveal tech-item p-6 flex flex-col items-center text-center" style="transition-delay: 0.1s;">
+            <div class="reveal tool-chip p-6 flex flex-col items-center text-center" style="transition-delay: 0.14s;">
                 <span class="iconify text-4xl text-sub mb-3" data-icon="logos:tailwindcss-icon"></span>
                 <p class="text-sm font-medium">Tailwind CSS</p>
                 <p class="text-[10px] text-sub font-mono mt-1">Estilos</p>
             </div>
-            <div class="reveal tech-item p-6 flex flex-col items-center text-center" style="transition-delay: 0.15s;">
+            <div class="reveal tool-chip p-6 flex flex-col items-center text-center" style="transition-delay: 0.2s;">
                 <span class="iconify text-4xl text-sub mb-3" data-icon="logos:nodejs-icon"></span>
                 <p class="text-sm font-medium">Node.js</p>
                 <p class="text-[10px] text-sub font-mono mt-1">Backend</p>
             </div>
-            <div class="reveal tech-item p-6 flex flex-col items-center text-center" style="transition-delay: 0.2s;">
+            <div class="reveal tool-chip p-6 flex flex-col items-center text-center" style="transition-delay: 0.08s;">
                 <span class="iconify text-4xl text-sub mb-3" data-icon="logos:typescript-icon"></span>
                 <p class="text-sm font-medium">TypeScript</p>
                 <p class="text-[10px] text-sub font-mono mt-1">Lenguaje</p>
             </div>
-            <div class="reveal tech-item p-6 flex flex-col items-center text-center" style="transition-delay: 0.25s;">
+            <div class="reveal tool-chip p-6 flex flex-col items-center text-center" style="transition-delay: 0.14s;">
                 <span class="iconify text-4xl text-sub mb-3" data-icon="logos:wordpress-icon"></span>
                 <p class="text-sm font-medium">WordPress</p>
                 <p class="text-[10px] text-sub font-mono mt-1">CMS</p>
             </div>
-            <div class="reveal tech-item p-6 flex flex-col items-center text-center" style="transition-delay: 0.3s;">
+            <div class="reveal tool-chip p-6 flex flex-col items-center text-center" style="transition-delay: 0.2s;">
                 <span class="iconify text-4xl text-sub mb-3" data-icon="logos:figma"></span>
                 <p class="text-sm font-medium">Figma</p>
                 <p class="text-[10px] text-sub font-mono mt-1">Diseño</p>
             </div>
-            <div class="reveal tech-item p-6 flex flex-col items-center text-center" style="transition-delay: 0.35s;">
+            <div class="reveal tool-chip p-6 flex flex-col items-center text-center" style="transition-delay: 0.28s;">
                 <span class="iconify text-4xl text-sub mb-3" data-icon="logos:shopify"></span>
                 <p class="text-sm font-medium">Shopify</p>
                 <p class="text-[10px] text-sub font-mono mt-1">E-Commerce</p>
@@ -521,9 +469,9 @@
         </div>
     </section>
 
-    <div class="divider mx-6 md:mx-12"></div>
+    <div class="sep mx-6 md:mx-12"></div>
 
-    <!-- ==================== DEMOS SECTION ==================== -->
+    <!-- muestras de trabajo -->
     <section id="demos" class="py-16 md:py-24 px-6 md:px-12">
         <div class="reveal mb-16 md:mb-24">
             <p class="font-mono text-[10px] tracking-widest uppercase text-mint mb-4">[ 04 — Demos ]</p>
@@ -531,17 +479,16 @@
             <p class="text-sm text-sub leading-relaxed mt-4 max-w-xl">Una muestra real de lo que construimos. Cada proyecto está diseñado para convertir visitantes en clientes.</p>
         </div>
 
-        <!-- ===== DEMO 1: Inmobiliaria ===== -->
-        <div class="reveal demo-card mb-12 md:mb-16">
+        <!-- la inmobiliaria, desktop es el panel admin -->
+        <div class="reveal showcase-block mb-12 md:mb-16">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
                 
-                <!-- Info -->
                 <div class="p-8 md:p-12 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-border">
                     <div>
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="demo-tag">Inmobiliaria</span>
-                            <span class="demo-tag">Panel Admin</span>
-                            <span class="demo-tag">Frontend</span>
+                            <span class="tag-pill">Inmobiliaria</span>
+                            <span class="tag-pill">Panel Admin</span>
+                            <span class="tag-pill">Frontend</span>
                         </div>
                         <h3 class="text-2xl md:text-3xl font-semibold tracking-tight mb-4">Plataforma Inmobiliaria</h3>
                         <p class="text-sm text-sub leading-relaxed mb-6">
@@ -558,43 +505,40 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#contacto" class="demo-link">
+                    <a href="#contacto" class="showcase-cta">
                         Quiero uno así <span class="iconify arrow" data-icon="mdi:arrow-right" data-width="14"></span>
                     </a>
                 </div>
 
-                <!-- Devices -->
                 <div class="p-8 md:p-12 flex items-center justify-center relative" style="background: rgba(255,255,255,0.01);">
-                    <div class="device-glow" style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+                    <div class="ambient-light" style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
                     <div class="flex items-end gap-6 md:gap-8 relative z-10">
                         
-                        <!-- MacBook -->
-                        <div class="macbook-frame hidden sm:block">
-                            <div class="macbook-notch"></div>
-                            <div class="macbook-screen">
+                        <div class="mac-frame hidden sm:block">
+                            <div class="mac-notch"></div>
+                            <div class="mac-screen">
                                 <img src="https://i.postimg.cc/mgmrD8qv/Macbook-Air.png" alt="Panel administrador inmobiliaria" loading="lazy">
                             </div>
-                            <div class="macbook-base"></div>
+                            <div class="mac-base"></div>
                         </div>
 
-                        <!-- iPhone -->
-                        <div class="iphone-frame">
-                            <div class="iphone-screen">
+                        <div class="phone-wrap">
+                            <div class="phone-screen">
                                 <img src="https://i.postimg.cc/L5F977YQ/i-Phone-14-PRO-chat-z-ai-(1).png" alt="Frontend móvil inmobiliaria" loading="lazy">
                             </div>
-                            <div class="iphone-home"></div>
+                            <div class="phone-home"></div>
                         </div>
 
                     </div>
 
-                    <!-- Mobile fallback: show desktop image below -->
+                    <!-- en telefono chico el mac se muestra abajo -->
                     <div class="sm:hidden w-full mt-6">
-                        <div class="macbook-frame">
-                            <div class="macbook-notch"></div>
-                            <div class="macbook-screen">
+                        <div class="mac-frame">
+                            <div class="mac-notch"></div>
+                            <div class="mac-screen">
                                 <img src="https://i.postimg.cc/mgmrD8qv/Macbook-Air.png" alt="Panel administrador inmobiliaria" loading="lazy">
                             </div>
-                            <div class="macbook-base"></div>
+                            <div class="mac-base"></div>
                         </div>
                     </div>
                 </div>
@@ -602,53 +546,48 @@
             </div>
         </div>
 
-        <!-- ===== DEMO 2: Arquitectura ===== -->
-        <div class="reveal demo-card" style="transition-delay: 0.15s;">
+        <!-- vidmar, este va al reves (devices a la izq) -->
+        <div class="reveal showcase-block" style="transition-delay: 0.15s;">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
                 
-                <!-- Devices (reversed order on this one) -->
                 <div class="p-8 md:p-12 flex items-center justify-center relative order-2 lg:order-1" style="background: rgba(255,255,255,0.01);">
-                    <div class="device-glow" style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+                    <div class="ambient-light" style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
                     <div class="flex items-end gap-6 md:gap-8 relative z-10">
                         
-                        <!-- MacBook -->
-                        <div class="macbook-frame hidden sm:block">
-                            <div class="macbook-notch"></div>
-                            <div class="macbook-screen">
+                        <div class="mac-frame hidden sm:block">
+                            <div class="mac-notch"></div>
+                            <div class="mac-screen">
                                 <img src="https://i.postimg.cc/J7TmjGKz/Macbook-Air-localhost.png" alt="Frontend desktop arquitectura" loading="lazy">
                             </div>
-                            <div class="macbook-base"></div>
+                            <div class="mac-base"></div>
                         </div>
 
-                        <!-- iPhone -->
-                        <div class="iphone-frame">
-                            <div class="iphone-screen">
+                        <div class="phone-wrap">
+                            <div class="phone-screen">
                                 <img src="https://i.postimg.cc/6QR50tTJ/i-Phone-14-PRO-localhost.png" alt="Frontend móvil arquitectura" loading="lazy">
                             </div>
-                            <div class="iphone-home"></div>
+                            <div class="phone-home"></div>
                         </div>
 
                     </div>
 
-                    <!-- Mobile fallback -->
                     <div class="sm:hidden w-full mt-6">
-                        <div class="macbook-frame">
-                            <div class="macbook-notch"></div>
-                            <div class="macbook-screen">
+                        <div class="mac-frame">
+                            <div class="mac-notch"></div>
+                            <div class="mac-screen">
                                 <img src="https://i.postimg.cc/J7TmjGKz/Macbook-Air-localhost.png" alt="Frontend desktop arquitectura" loading="lazy">
                             </div>
-                            <div class="macbook-base"></div>
+                            <div class="mac-base"></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Info -->
                 <div class="p-8 md:p-12 flex flex-col justify-between border-b lg:border-b-0 lg:border-l border-border order-1 lg:order-2">
                     <div>
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="demo-tag">Arquitectura</span>
-                            <span class="demo-tag">Corporativo</span>
-                            <span class="demo-tag">Responsive</span>
+                            <span class="tag-pill">Arquitectura</span>
+                            <span class="tag-pill">Corporativo</span>
+                            <span class="tag-pill">Responsive</span>
                         </div>
                         <h3 class="text-2xl md:text-3xl font-semibold tracking-tight mb-4">Vidmar Construcciones</h3>
                         <p class="text-sm text-sub leading-relaxed mb-6">
@@ -666,7 +605,7 @@
                         </div>
                     </div>
                     <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                        <a href="https://vidmarconstrucciones.com" target="_blank" rel="noopener" class="demo-link">
+                        <a href="https://vidmarconstrucciones.com" target="_blank" rel="noopener" class="showcase-cta">
                             Ver sitio en vivo <span class="iconify arrow" data-icon="mdi:arrow-right" data-width="14"></span>
                         </a>
                         <span class="text-[10px] font-mono text-sub">vidmarconstrucciones.com</span>
@@ -678,45 +617,45 @@
 
     </section>
 
-    <div class="divider mx-6 md:mx-12"></div>
+    <div class="sep mx-6 md:mx-12"></div>
 
-    <!-- Stats Section -->
+    <!-- numeros para impresionar -->
     <section class="py-16 md:py-24 px-6 md:px-12">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 md:divide-x divide-border">
             <div class="reveal text-center md:px-8">
-                <p class="text-4xl font-bold tracking-tight text-gradient">150+</p>
+                <p class="text-4xl font-bold tracking-tight grad-text">150+</p>
                 <p class="text-xs text-sub uppercase tracking-wide mt-2">Proyectos Entregados</p>
             </div>
             <div class="reveal text-center md:px-8" style="transition-delay: 0.1s;">
-                <p class="text-4xl font-bold tracking-tight text-gradient">98%</p>
+                <p class="text-4xl font-bold tracking-tight grad-text">98%</p>
                 <p class="text-xs text-sub uppercase tracking-wide mt-2">Clientes Satisfechos</p>
             </div>
-            <div class="reveal text-center md:px-8" style="transition-delay: 0.2s;">
-                <p class="text-4xl font-bold tracking-tight text-gradient">5+</p>
+            <div class="reveal text-center md:px-8" style="transition-delay: 0.18s;">
+                <p class="text-4xl font-bold tracking-tight grad-text">5+</p>
                 <p class="text-xs text-sub uppercase tracking-wide mt-2">Años de Experiencia</p>
             </div>
-            <div class="reveal text-center md:px-8" style="transition-delay: 0.3s;">
-                <p class="text-4xl font-bold tracking-tight text-gradient">24/7</p>
+            <div class="reveal text-center md:px-8" style="transition-delay: 0.25s;">
+                <p class="text-4xl font-bold tracking-tight grad-text">24/7</p>
                 <p class="text-xs text-sub uppercase tracking-wide mt-2">Soporte Técnico</p>
             </div>
         </div>
     </section>
 
-    <div class="divider mx-6 md:mx-12"></div>
+    <div class="sep mx-6 md:mx-12"></div>
 
-    <!-- Contact Section -->
+    <!-- formulario de contacto, va a ### -->
     <section id="contacto" class="py-16 md:py-24 px-6 md:px-12">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
             <div class="reveal">
                 <p class="font-mono text-[10px] tracking-widest uppercase text-mint mb-4">[ 05 — Contacto ]</p>
-                <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-6">Hablemos de tu <span class="text-gradient">próximo proyecto</span></h2>
+                <h2 class="text-3xl md:text-4xl font-semibold tracking-tight mb-6">Hablemos de tu <span class="grad-text">próximo proyecto</span></h2>
                 <p class="text-sm text-sub leading-relaxed mb-8">
                     Cuéntanos tu idea y te responderemos en menos de 24 horas con una propuesta personalizada sin compromiso.
                 </p>
                 <div class="space-y-4">
                     <div class="flex items-center gap-3 text-sub">
                         <span class="iconify text-mint" data-icon="mdi:email-outline" data-width="18"></span>
-                        <span class="text-sm">hola@vidrro.com</span>
+                        <span class="text-sm">studio@vidrro.com</span>
                     </div>
                     <div class="flex items-center gap-3 text-sub">
                         <span class="iconify text-mint" data-icon="mdi:phone-outline" data-width="18"></span>
@@ -730,18 +669,22 @@
             </div>
 
             <div class="reveal" style="transition-delay: 0.15s;">
-                <form id="contact-form" class="space-y-6">
+                <form id="contact-form" action="https://formspree.io/f/xvzlqrde" method="POST" class="space-y-6">
                     <div>
                         <label class="text-[10px] font-mono tracking-widest uppercase text-sub block mb-2">Nombre</label>
-                        <input type="text" required class="w-full bg-panel border border-border px-4 py-3 text-sm text-white focus:outline-none focus:border-mint transition-colors" placeholder="Tu nombre completo">
+                        <input type="text" name="name" required class="w-full bg-panel border border-border px-4 py-3 text-sm text-white focus:outline-none focus:border-mint transition-colors" placeholder="Tu nombre completo">
                     </div>
                     <div>
                         <label class="text-[10px] font-mono tracking-widest uppercase text-sub block mb-2">Email</label>
-                        <input type="email" required class="w-full bg-panel border border-border px-4 py-3 text-sm text-white focus:outline-none focus:border-mint transition-colors" placeholder="tu@email.com">
+                        <input type="email" name="email" required class="w-full bg-panel border border-border px-4 py-3 text-sm text-white focus:outline-none focus:border-mint transition-colors" placeholder="tu@email.com">
+                    </div>
+                    <div>
+                        <label class="text-[10px] font-mono tracking-widest uppercase text-sub block mb-2">Teléfono</label>
+                        <input type="tel" name="phone" required class="w-full bg-panel border border-border px-4 py-3 text-sm text-white focus:outline-none focus:border-mint transition-colors" placeholder="+54 11 XXXX XXXX">
                     </div>
                     <div>
                         <label class="text-[10px] font-mono tracking-widest uppercase text-sub block mb-2">Tipo de Proyecto</label>
-                        <select class="w-full bg-panel border border-border px-4 py-3 text-sm text-sub focus:outline-none focus:border-mint transition-colors appearance-none">
+                        <select name="project" class="w-full bg-panel border border-border px-4 py-3 text-sm text-sub focus:outline-none focus:border-mint transition-colors appearance-none">
                             <option value="">Selecciona una opción</option>
                             <option value="web">Página Web Corporativa</option>
                             <option value="ecommerce">Tienda Online / E-Commerce</option>
@@ -752,111 +695,114 @@
                     </div>
                     <div>
                         <label class="text-[10px] font-mono tracking-widest uppercase text-sub block mb-2">Mensaje</label>
-                        <textarea rows="4" required class="w-full bg-panel border border-border px-4 py-3 text-sm text-white focus:outline-none focus:border-mint transition-colors resize-none" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+                        <textarea name="message" rows="4" required class="w-full bg-panel border border-border px-4 py-3 text-sm text-white focus:outline-none focus:border-mint transition-colors resize-none" placeholder="Cuéntanos sobre tu proyecto..."></textarea>
                     </div>
-                    <button type="submit" class="btn-primary w-full text-center">
+                    <button type="submit" id="submit-btn" class="btn-solid w-full text-center">
                         Enviar Mensaje
                     </button>
-                    <p id="form-feedback" class="text-mint text-xs text-center hidden">¡Mensaje enviado! Te contactaremos pronto.</p>
+                    <p id="form-msg" class="text-xs text-center hidden"></p>
                 </form>
             </div>
         </div>
     </section>
 
-    <div class="divider mx-6 md:mx-12"></div>
+    <div class="sep mx-6 md:mx-12"></div>
 
-    <!-- Footer -->
+    <!-- footer, nada mas -->
     <footer class="py-12 px-6 md:px-12">
         <div class="flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="flex items-center gap-2">
                 <span class="text-mint text-lg font-bold tracking-tightest">VID</span><span class="text-white text-lg font-bold tracking-tightest">RRO</span>
             </div>
             <p class="text-xs text-sub">© 2026 VIDRRO. Todos los derechos reservados.</p>
-            <div class="flex items-center gap-4">
-                <a href="#" class="text-sub hover:text-mint transition-colors">
-                    <span class="iconify" data-icon="mdi:instagram" data-width="20"></span>
-                </a>
-                <a href="#" class="text-sub hover:text-mint transition-colors">
-                    <span class="iconify" data-icon="mdi:linkedin" data-width="20"></span>
-                </a>
-                <a href="#" class="text-sub hover:text-mint transition-colors">
-                    <span class="iconify" data-icon="mdi:github" data-width="20"></span>
-                </a>
-                <a href="#" class="text-sub hover:text-mint transition-colors">
-                    <span class="iconify" data-icon="mdi:twitter" data-width="20"></span>
-                </a>
-            </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script>
-        // Preloader
-        const preloader = document.getElementById('preloader');
-        const bar = document.getElementById('preloader-bar');
-        let width = 0;
-        const interval = setInterval(() => {
-            width += Math.random() * 15 + 5;
-            if (width >= 100) {
-                width = 100;
-                clearInterval(interval);
+        // barra de progreso del loader, randomizo un poco para que no sea lineal
+        const loader = document.getElementById('loader');
+        const pBar = document.getElementById('loader-bar');
+        let prog = 0;
+        const tick = setInterval(() => {
+            prog += Math.random() * 15 + 5;
+            if (prog >= 100) {
+                prog = 100;
+                clearInterval(tick);
                 setTimeout(() => {
-                    preloader.classList.add('fade-out');
+                    loader.classList.add('fade-out');
                     document.querySelectorAll('.reveal').forEach((el, i) => {
                         setTimeout(() => el.classList.add('active'), i * 100);
                     });
                 }, 300);
             }
-            bar.style.width = width + '%';
+            pBar.style.width = prog + '%';
         }, 100);
 
-        // Mobile Menu
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('open');
-        });
-        document.querySelectorAll('.mobile-link').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
-            });
+        // hamburger menu
+        const menuBtn = document.getElementById('menu-btn');
+        const drawer = document.getElementById('drawer');
+        menuBtn.addEventListener('click', () => drawer.classList.toggle('open'));
+        document.querySelectorAll('.mobile-link').forEach(l => {
+            l.addEventListener('click', () => drawer.classList.remove('open'));
         });
 
-        // Scroll Reveal (Intersection Observer)
-        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target);
+        // intersection observer para los reveals
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('active');
+                    io.unobserve(e.target);
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
+        // espero un poco antes de observar para que no pise con el loader
         setTimeout(() => {
-            document.querySelectorAll('.reveal:not(.active)').forEach(el => {
-                observer.observe(el);
-            });
+            document.querySelectorAll('.reveal:not(.active)').forEach(el => io.observe(el));
         }, 1500);
 
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+        // scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', function(e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+                const t = document.querySelector(this.getAttribute('href'));
+                if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
 
-        // Form Submission
+        // envio del form a ### con fetch
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
-            const feedback = document.getElementById('form-feedback');
-            feedback.classList.remove('hidden');
-            this.reset();
-            setTimeout(() => feedback.classList.add('hidden'), 4000);
+            const form = this;
+            const btn = document.getElementById('submit-btn');
+            const msg = document.getElementById('form-msg');
+
+            btn.textContent = 'Enviando...';
+            btn.disabled = true;
+            btn.style.opacity = '0.6';
+
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            }).then(r => {
+                if (r.ok) {
+                    msg.textContent = '¡Mensaje enviado! Te contactaremos pronto.';
+                    msg.style.color = '#00ffa3';
+                    form.reset();
+                } else {
+                    return r.json().then(d => { throw new Error(d.error || 'Error'); });
+                }
+            }).catch(() => {
+                msg.textContent = 'Hubo un error. Intentá de nuevo.';
+                msg.style.color = '#ff4444';
+            }).finally(() => {
+                msg.classList.remove('hidden');
+                btn.textContent = 'Enviar Mensaje';
+                btn.disabled = false;
+                btn.style.opacity = '1';
+                setTimeout(() => msg.classList.add('hidden'), 5000);
+            });
         });
     </script>
 </body>
